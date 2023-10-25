@@ -70,11 +70,11 @@
 
         @media (max-width: 878px) and (max-height: 963px) {
             .vd-ms {
-                display: none; /* Hide the video on screens with width <= 878px and height <= 963px */
+                display: none;
             }
             .video-mt {
-            background-color: pink; /* Add a background color (e.g., pink) for screens with width <= 878px and height <= 963px */
-        }
+            background-color: pink;
+            }
         }
     </style>
 </body>
