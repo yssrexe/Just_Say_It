@@ -16,4 +16,9 @@ class MyController extends Controller
     {
         return view("log-sign.sign");
     }
+
+    public function login()
+    {
+        return view("log-sign.log");
+    }
 }

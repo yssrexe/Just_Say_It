@@ -16,7 +16,7 @@
                 <div class="col-12">
                   <div class="card ezy__signup12-form-card">
                     <div class="card-body p-md-5">
-                      <h2 class="ezy__signup12-heading text-center">Sign Up</h2>
+                      <h1 class="ezy__signup12-heading text-center">Log In</h1>
 
                       <button class="btn btn-danger ezy__signup12-btn w-100 d-flex align-items-center mt-4 mb-3">
                         <span class="fab fa-google text-white fs-4"></span>
@@ -45,17 +45,15 @@
 
                         <div class="form-group mb-3">
                           <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="remember-me" checked />
-                            <label class="form-check-label" for="remember-me">Keep me up to date on class events and new
-                              releases</label>
+                            <input class="form-check-input" type="checkbox" value="" id="remember-me" checked/>
                           </div>
                         </div>
-                        <button type="submit" class="btn ezy__signup12-btn-submit w-100">CREATE ACCOUNT</button>
+                        <button type="submit" class="btn ezy__signup12-btn-submit w-100">Log In</button>
 
                         <div class="text-center mt-4">
                           <h6 class="mb-3">
-                            Already have an account?
-                            <a href="/login">Log in.</a>
+                            i'dont have an account !
+                            <a href="/signup">sign up.</a>
                           </h6>
                           <p class="mb-0">
                             By signing up or creating an account, you agree to our <br />
