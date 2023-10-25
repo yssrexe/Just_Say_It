@@ -18,7 +18,7 @@
     <div class="titles">
         <p class="title">Organize your work <br> and life, finally.</p>
         <p class="mini-title">Become focused, organized, and calm with Todoist. The world’s #1 <br> task manager and to-do list app.</p>
-        <a id="bott" class="btn btn-danger" href="">Start for free</a>
+        <a id="bott" class="btn btn-danger" href="/signup">Start for free</a>
     </div>
 
         <video class="vd-ms" width="100%" height="100%" plays-inline autoplay muted loop>

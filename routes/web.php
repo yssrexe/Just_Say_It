@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 route::get('/', [MyController::class,'Welcome']);
+Route::get('/signup', [MyController::class,'sign']);

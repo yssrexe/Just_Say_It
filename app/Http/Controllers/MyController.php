@@ -11,4 +11,9 @@ class MyController extends Controller
     {
         return view("welcome");
     }
+
+    public function sign()
+    {
+        return view("log-sign.sign");
+    }
 }
