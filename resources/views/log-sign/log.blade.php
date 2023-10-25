@@ -8,6 +8,7 @@
     <title>Sign up</title>
 </head>
 <body>
+    <div class="center">
       <div class="formss">
         <div class="modal-dialog">
           <div class="modal-content overflow-hidden border-0">
@@ -43,13 +44,6 @@
                           <input type="password" class="form-control" id="password" />
                         </div>
 
-                        <div class="form-group mb-3">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="remember-me" checked/>
-                          </div>
-                        </div>
-                        <button type="submit" class="btn ezy__signup12-btn-submit w-100">Log In</button>
-
                         <div class="text-center mt-4">
                           <h6 class="mb-3">
                             i'dont have an account !
@@ -69,10 +63,64 @@
           </div>
         </div>
       </div>
+    </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
       <style>
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body  {
+    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+        -webkit-animation: slidein 100s;
+        animation: slidein 100s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2750px;}
+
+}
+
+
+
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+.center h1{
+  text-align:center;
+  color:white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform:uppercase;
+}
+        /********************************************************************/
         .formss{
             width: 60%;
             height: 70%;
