@@ -192,10 +192,10 @@ to {background-position: -100px 0px;background-size:2750px;}
       }
 
       .ezy__signup12-form-card {
-        background-color: var(--bs-body-bg);
         border: none;
         box-shadow: none;
-        border-radius: 0;
+        border-radius: 25px;
+        background-color:rgba(255, 255, 255, 0.3);
       }
 
       .ezy__signup12-form-card * {

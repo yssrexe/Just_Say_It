@@ -94,15 +94,23 @@ to {background-position: -100px 0px;background-size:2750px;}
         }
 
         .title{
-
-            font-size: 46px;
-            color: black;
+            text-shadow: -2px 2px 0 #000,
+                          2px 2px 0 #000,
+                         2px -2px 0 #000,
+                        -2px -2px 0 #000;
+            font-size: 50px;
+            color: rgb(255, 255, 255);
             font-weight: 600;
             transition: 0.5s;
             font-family: 'Playpen Sans', cursive;
         }
         .mini-title{
-            font-size:20px;
+            text-shadow: -0.4px 0.4px 0 #000,
+                          0.4px 0.4px 0 #000,
+                         0.4px -0.4px 0 #000,
+                        -0.4px -0.4px 0 #000;
+            font-size:23px;
+            color: white
             font-family: 'Josefin Sans', sans-serif;
             font-family: 'Playpen Sans', cursive;
         }
