@@ -117,6 +117,7 @@ to {background-position: -100px 0px;background-size:2750px;}
 
         .bott{
             font-size: 20px;
+            font-family: 'Playpen Sans', cursive;
         }
 
         @media (max-width: 878px) and (max-height: 963px) {

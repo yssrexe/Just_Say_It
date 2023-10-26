@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&family=Playpen+Sans:wght@500&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -182,6 +188,7 @@ to {background-position: -100px 0px;background-size:2750px;}
       }
 
       body{
+        font-family: 'Playpen Sans', cursive;
         text-align: -webkit-center;
       }
 
@@ -258,13 +265,13 @@ to {background-position: -100px 0px;background-size:2750px;}
       }
 
       .ezy__signup12-or-separator span {
-        background-color: var(--bs-body-bg);
+        background-color: rgba(255, 255, 255, 0.6);
         color: var(--bs-body-color);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
-        opacity: 0.8;
+        border-radius: 25px;
       }
 
       .ezy__signup12 a:hover {
