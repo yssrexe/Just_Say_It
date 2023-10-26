@@ -21,4 +21,9 @@ class MyController extends Controller
     {
         return view("log-sign.log");
     }
+
+    public function offpage()
+    {
+        return view("inside.offpage");
+    }
 }
