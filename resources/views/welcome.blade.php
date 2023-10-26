@@ -29,6 +29,7 @@
         @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
 
 body  {
+    font-family: 'Playpen Sans', cursive;
     background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
   background-size:cover;
         -webkit-animation: slidein 100s;
@@ -105,12 +106,12 @@ to {background-position: -100px 0px;background-size:2750px;}
             font-family: 'Playpen Sans', cursive;
         }
         .mini-title{
-            text-shadow: -0.4px 0.4px 0 #000,
-                          0.4px 0.4px 0 #000,
-                         0.4px -0.4px 0 #000,
-                        -0.4px -0.4px 0 #000;
-            font-size:23px;
-            color: white
+            text-shadow: -0.2px 0.2px 0 #000,
+                          0.2px 0.2px 0 #000,
+                         0.2px -0.2px 0 #000,
+                        -0.2px -0.2px 0 #000;
+            font-size:18px;
+            color: rgb(255, 255, 255);
             font-family: 'Josefin Sans', sans-serif;
             font-family: 'Playpen Sans', cursive;
         }
