@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 route::get('/', [MyController::class,'Welcome']);
-Route::get('/auth/signup', [MyController::class,'sign']);
+Route::get('/signup', [MyController::class,'sign']);
 Route::get('/login', [MyController::class,'login']);
 Route::get('/off', [MyController::class,'offpage']);
