@@ -20,6 +20,6 @@ class FormController extends Controller
         // Create a new record in the database
         Accounts::create($validatedData);
 
-        return redirect('/')->with('success', 'Data has been saved successfully');
+        return view("log-sign.log");
     }
 }

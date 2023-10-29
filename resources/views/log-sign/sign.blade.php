@@ -56,7 +56,7 @@
                           <input name="password" type="password" class="form-control" id="password" />
                         </div>
 
-                        <button type="submit">Submit</button>
+                        <button class="sub" type="submit">Submit</button>
 
                         <div class="text-center mt-4">
                           <h6 class="mb-3">
@@ -110,7 +110,26 @@ to {background-position: -100px 0px;background-size:2750px;}
 
 }
 
+.sub{
+    background: #ecd8ee;
+  height: 40px;
+  width: 85px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+}
 
+.sub:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+  color: white;
+  background-color: #421646;
+}
+
+.sub:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+}
 
 .center
 {
