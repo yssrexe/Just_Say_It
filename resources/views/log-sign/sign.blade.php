@@ -41,8 +41,13 @@
 
                       <form>
                         <div class="form-group mb-4">
+                            <label for="username" class="mb-2">Full Name</label>
+                            <input type="text" class="form-control" id="username" />
+                        </div>
+
+                        <div class="form-group mb-4">
                           <label for="email" class="mb-2">Email</label>
-                          <input type="text" class="form-control" id="email" />
+                          <input type="email" class="form-control" id="email" />
                         </div>
 
                         <div class="form-group mb-4">
