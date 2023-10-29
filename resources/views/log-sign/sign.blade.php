@@ -39,21 +39,24 @@
                         <span class="px-2">Or</span>
                       </div>
 
-                      <form>
+                      <form method="POST" action="/submit-form">
+                        @csrf
                         <div class="form-group mb-4">
                             <label for="username" class="mb-2">Full Name</label>
-                            <input type="text" class="form-control" id="username" />
+                            <input name="username" type="text" class="form-control" id="username" />
                         </div>
 
                         <div class="form-group mb-4">
                           <label for="email" class="mb-2">Email</label>
-                          <input type="email" class="form-control" id="email" />
+                          <input name="email" type="email" class="form-control" id="email" />
                         </div>
 
                         <div class="form-group mb-4">
                           <label for="password" class="mb-2">Password</label>
-                          <input type="password" class="form-control" id="password" />
+                          <input name="password" type="password" class="form-control" id="password" />
                         </div>
+
+                        <button type="submit">Submit</button>
 
                         <div class="text-center mt-4">
                           <h6 class="mb-3">
