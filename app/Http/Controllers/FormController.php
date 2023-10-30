@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 
 class FormController extends Controller
 {
-    public function login(Request $request)
+    public function signin(Request $request)
     {
         // Validate the form data
         $validatedData = $request->validate([
@@ -23,7 +23,7 @@ class FormController extends Controller
         // Create a new record in the database
         Accounts::create($validatedData);
 
-        return view("log-sign.log");
+        return view('log-sign.log');
     }
 
     public function check(Request $request)
@@ -32,7 +32,7 @@ class FormController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect('/dashboard'); // Redirect to the dashboard or any authenticated route
+            return view('welcome'); // Redirect to the dashboard or any authenticated route
         } else {
             // Authentication failed
             return back()->withErrors(['email' => 'These credentials do not match our records.']);

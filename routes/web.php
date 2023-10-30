@@ -21,4 +21,7 @@ Route::get('/login', [MyController::class,'login']);
 Route::get('/off', [MyController::class,'offpage']);
 
 
-Route::post('/submit-form', [FormController::class,'login']);
+Route::post('/submit', [FormController::class,'signin'])->name('submit');
+
+Route::get('/check', [FormController::class, 'check'])->name('check');
+Route::post('/check', [FormController::class, 'check']);

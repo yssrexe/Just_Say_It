@@ -39,7 +39,7 @@
                         <span class="px-2">Or</span>
                       </div>
 
-                      <form method="POST" action="/submit-form">
+                      <form method="POST" action="{{ route('submit') }}">
                         @csrf
                         <div class="form-group mb-4">
                             <label for="username" class="mb-2">Full Name</label>
