@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Accounts;
 use Illuminate\Support\Facades\Hash;
@@ -23,5 +24,18 @@ class FormController extends Controller
         Accounts::create($validatedData);
 
         return view("log-sign.log");
+    }
+
+    public function check(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed
+            return redirect('/dashboard'); // Redirect to the dashboard or any authenticated route
+        } else {
+            // Authentication failed
+            return back()->withErrors(['email' => 'These credentials do not match our records.']);
+        }
     }
 }

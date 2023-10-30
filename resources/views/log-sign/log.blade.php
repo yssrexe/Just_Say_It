@@ -39,30 +39,31 @@
                         <span class="px-2">Or</span>
                       </div>
 
-                      <form>
-                        <div class="form-group mb-4">
-                          <label for="email" class="mb-2">Email</label>
-                          <input type="text" class="form-control" id="email" />
-                        </div>
+                        <form method="POST" action="{{ route('check') }}">
+                            @csrf
+                            <div class="form-group mb-4">
+                                <label for="email" class="mb-2">Email</label>
+                                <input name="email" type="email" class="form-control" id="email" required />
+                            </div>
 
-                        <div class="form-group mb-4">
-                          <label for="password" class="mb-2">Password</label>
-                          <input type="password" class="form-control" id="password" />
-                        </div>
+                            <div class="form-group mb-4">
+                                <label for="password" class="mb-2">Password</label>
+                                <input name="password" type="password" class="form-control" id="password" required/>
+                            </div>
 
-                        <button class="sub" type="submit">Submit</button>
+                            <button class="sub" type="submit">Submit</button>
 
-                        <div class="text-center mt-4">
-                          <h6 class="mb-3">
-                            i'dont have an account !
-                            <a href="/signup">sign up.</a>
-                          </h6>
-                          <p class="mb-0">
-                            By signing up or creating an account, you agree to our <br />
-                            <a href="">Privacy Policy and Terms & Service.</a>
-                          </p>
-                        </div>
-                      </form>
+                            <div class="text-center mt-4">
+                                <h6 class="mb-3">
+                                    i'dont have an account !
+                                    <a href="/signup">sign up.</a>
+                                </h6>
+                                <p class="mb-0">
+                                    By signing up or creating an account, you agree to our <br />
+                                    <a href="">Privacy Policy and Terms & Service.</a>
+                                </p>
+                            </div>
+                        </form>
                     </div>
                   </div>
                 </div>
