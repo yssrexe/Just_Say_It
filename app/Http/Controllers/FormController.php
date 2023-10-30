@@ -32,10 +32,10 @@ class FormController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return view('welcome'); // Redirect to the dashboard or any authenticated route
+            return view('inside.offpage'); // Redirect to the dashboard or any authenticated route
         } else {
             // Authentication failed
-            return back()->withErrors(['email' => 'These credentials do not match our records.']);
+            return view('inside.error');
         }
     }
 }
