@@ -19,7 +19,7 @@
         <div class="modal-dialog">
           <div class="modal-content overflow-hidden border-0">
             <div class="modal-body p-0 position-relative">
-              <div class="row py-4 justify-content-center">
+              <div class="row justify-content-center">
                 <div class="col-12">
                   <div class="card ezy__signup12-form-card">
                     <div class="card-body p-md-5">
