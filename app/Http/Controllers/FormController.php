@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Accounts;
 use Illuminate\Support\Facades\Hash;
@@ -28,13 +29,18 @@ class FormController extends Controller
 
     public function check(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed
+        // Perform a custom query to check if the email exists in the database
+        $user = DB::table('users')
+                    ->where('email', $email)
+                    ->first();
+
+        if ($user && password_verify($password, $user->password)) {
+                        // Email and password match
             return view('inside.offpage'); // Redirect to the dashboard or any authenticated route
         } else {
-            // Authentication failed
             return view('inside.error');
         }
     }
