@@ -25,18 +25,10 @@
                     <div class="card-body p-md-5">
                       <h1 class="ezy__signup12-heading text-center">Log In</h1>
 
-                      <button class="btn btn-danger ezy__signup12-btn w-100 d-flex align-items-center mt-4 mb-3">
-                        <span class="fab fa-google text-white fs-4"></span>
-                        <span class="w-100 text-center text-white">Continue with Google</span>
-                      </button>
-                      <button class="btn btn-primary ezy__signup12-btn w-100 d-flex align-items-center">
-                        <span class="fab fa-facebook text-white fs-4"></span>
-                        <span class="w-100 text-center text-white">Continue with Facebook</span>
-                      </button>
 
                       <div class="position-relative ezy__signup12-or-separator">
                         <hr class="my-4 mt-md-5" />
-                        <span class="px-2">Or</span>
+                        <span class="px-2"></span>
                       </div>
 
                         <form method="POST" action="{{ route('check') }}">

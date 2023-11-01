@@ -21,7 +21,6 @@ class FormController extends Controller
         ]);
 
 
-
         Accounts::create($validatedData);
 
         return view('log-sign.log');
