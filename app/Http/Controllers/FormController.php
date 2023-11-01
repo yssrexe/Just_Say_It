@@ -37,7 +37,7 @@ class FormController extends Controller
         if ($user && $request->password == $user->password) {
             return view('inside.offpage');
         } else {
-            return view('inside.error');
+            return back()->with('error', 'Invalid credentials.');
         }
     }
 }
