@@ -70,37 +70,10 @@
 
       <style>
 
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
-
 body  {
-    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
-  background-size:cover;
-        -webkit-animation: slidein 100s;
-        animation: slidein 100s;
-
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+    overflow: hidden;
 }
-
-@-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
-}
-
-@keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
-
-}
-
-
-
 .center
 {
   display: flex;
@@ -112,8 +85,9 @@ to {background-position: -100px 0px;background-size:2750px;}
   right: 0;
   bottom: -10%;
   left: 0;
-  background: rgba(75, 75, 250, 0.3);
+  background: linear-gradient(100deg, #575656, #062e3f);
   border-radius: 3px;
+  overflow: hidden;
 }
         /********************************************************************/
         .formss{

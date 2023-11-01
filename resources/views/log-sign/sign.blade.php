@@ -77,35 +77,25 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
       <style>
-        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
-
-body  {
-    background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
-  background-size:cover;
-        -webkit-animation: slidein 100s;
-        animation: slidein 100s;
-
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;
+        body  {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+    overflow: hidden;
 }
-
-@-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: -10%;
+  left: 0;
+  background: linear-gradient(100deg, #575656, #062e3f);
+  border-radius: 3px;
+  overflow: hidden;
 }
-
-@keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2750px;}
-
-}
-
 .sub{
     background: #ecd8ee;
   height: 40px;
@@ -125,21 +115,6 @@ to {background-position: -100px 0px;background-size:2750px;}
 .sub:active {
   transform: translate(0.05em, 0.05em);
   box-shadow: 0.05em 0.05em;
-}
-
-.center
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: -10%;
-  left: 0;
-  background: rgba(75, 75, 250, 0.3);
-  border-radius: 3px;
 }
         /*****************************************************************/
         .formss{
