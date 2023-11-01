@@ -118,7 +118,7 @@ to {background-position: -100px 0px;background-size:2750px;}
   margin: auto;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10%;
   left: 0;
   background: rgba(75, 75, 250, 0.3);
   border-radius: 3px;

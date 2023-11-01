@@ -43,18 +43,23 @@
                         @csrf
                         <div class="form-group mb-4">
                             <label for="username" class="mb-2">Full Name</label>
-                            <input name="username" type="text" class="form-control" id="username" />
+                            <input name="username" type="text" class="form-control" id="username" required/>
                         </div>
 
                         <div class="form-group mb-4">
                           <label for="email" class="mb-2">Email</label>
-                          <input name="email" type="email" class="form-control" id="email" />
+                          <input name="email" type="email" class="form-control" id="email" required/>
                         </div>
 
                         <div class="form-group mb-4">
                           <label for="password" class="mb-2">Password</label>
-                          <input name="password" type="password" class="form-control" id="password" />
+                          <input name="password" type="password" class="form-control" id="password" required/>
                         </div>
+
+                        <div class="form-group mb-4">
+                            <label for="password" class="mb-2">Password</label>
+                            <input name="password_confirmation" type="password" class="form-control" id="password" required/>
+                          </div>
 
                         <button class="sub" type="submit">Submit</button>
 
@@ -140,7 +145,7 @@ to {background-position: -100px 0px;background-size:2750px;}
   margin: auto;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10%;
   left: 0;
   background: rgba(75, 75, 250, 0.3);
   border-radius: 3px;

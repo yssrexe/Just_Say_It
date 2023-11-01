@@ -17,7 +17,7 @@ class FormController extends Controller
         $validatedData = $request->validate([
             'username' => 'required|string',
             'email' => 'required|email',
-            'password'=> 'required|string',
+            'password'=> 'required|string|confirmed',
         ]);
 
 
