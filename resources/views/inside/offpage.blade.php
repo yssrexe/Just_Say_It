@@ -44,574 +44,574 @@
     </div>
 
     <script>
-        // Selectors
+            // Selectors
 
-const toDoInput = document.querySelector('.todo-input');
-const toDoBtn = document.querySelector('.todo-btn');
-const toDoList = document.querySelector('.todo-list');
-const standardTheme = document.querySelector('.standard-theme');
-const lightTheme = document.querySelector('.light-theme');
-const darkerTheme = document.querySelector('.darker-theme');
-
-
-// Event Listeners
-
-toDoBtn.addEventListener('click', addToDo);
-toDoList.addEventListener('click', deletecheck);
-document.addEventListener("DOMContentLoaded", getTodos);
-standardTheme.addEventListener('click', () => changeTheme('standard'));
-lightTheme.addEventListener('click', () => changeTheme('light'));
-darkerTheme.addEventListener('click', () => changeTheme('darker'));
-
-// Check if one theme has been set previously and apply it (or std theme if not found):
-let savedTheme = localStorage.getItem('savedTheme');
-savedTheme === null ?
-    changeTheme('standard')
-    : changeTheme(localStorage.getItem('savedTheme'));
-
-// Functions;
-function addToDo(event) {
-    // Prevents form from submitting / Prevents form from relaoding;
-    event.preventDefault();
-
-    // toDo DIV;
-    const toDoDiv = document.createElement("div");
-    toDoDiv.classList.add('todo', `${savedTheme}-todo`);
-
-    // Create LI
-    const newToDo = document.createElement('li');
-    if (toDoInput.value === '') {
-            alert("You must write something!");
-        }
-    else {
-        // newToDo.innerText = "hey";
-        newToDo.innerText = toDoInput.value;
-        newToDo.classList.add('todo-item');
-        toDoDiv.appendChild(newToDo);
-
-        // Adding to local storage;
-        savelocal(toDoInput.value);
-
-        // check btn;
-        const checked = document.createElement('button');
-        checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add('check-btn', `${savedTheme}-button`);
-        toDoDiv.appendChild(checked);
-        // delete btn;
-        const deleted = document.createElement('button');
-        deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add('delete-btn', `${savedTheme}-button`);
-        toDoDiv.appendChild(deleted);
-
-        // Append to list;
-        toDoList.appendChild(toDoDiv);
-
-        // CLearing the input;
-        toDoInput.value = '';
-    }
-
-}
+        const toDoInput = document.querySelector('.todo-input');
+        const toDoBtn = document.querySelector('.todo-btn');
+        const toDoList = document.querySelector('.todo-list');
+        const standardTheme = document.querySelector('.standard-theme');
+        const lightTheme = document.querySelector('.light-theme');
+        const darkerTheme = document.querySelector('.darker-theme');
 
 
-function deletecheck(event){
+        // Event Listeners
 
-    // console.log(event.target);
-    const item = event.target;
+        toDoBtn.addEventListener('click', addToDo);
+        toDoList.addEventListener('click', deletecheck);
+        document.addEventListener("DOMContentLoaded", getTodos);
+        standardTheme.addEventListener('click', () => changeTheme('standard'));
+        lightTheme.addEventListener('click', () => changeTheme('light'));
+        darkerTheme.addEventListener('click', () => changeTheme('darker'));
 
-    // delete
-    if(item.classList[0] === 'delete-btn')
-    {
-        // item.parentElement.remove();
-        // animation
-        item.parentElement.classList.add("fall");
+        // Check if one theme has been set previously and apply it (or std theme if not found):
+        let savedTheme = localStorage.getItem('savedTheme');
+        savedTheme === null ?
+            changeTheme('standard')
+            : changeTheme(localStorage.getItem('savedTheme'));
 
-        //removing local todos;
-        removeLocalTodos(item.parentElement);
+        // Functions;
+        function addToDo(event) {
+            // Prevents form from submitting / Prevents form from relaoding;
+            event.preventDefault();
 
-        item.parentElement.addEventListener('transitionend', function(){
-            item.parentElement.remove();
-        })
-    }
+            // toDo DIV;
+            const toDoDiv = document.createElement("div");
+            toDoDiv.classList.add('todo', `${savedTheme}-todo`);
 
-    // check
-    if(item.classList[0] === 'check-btn')
-    {
-        item.parentElement.classList.toggle("completed");
-    }
+            // Create LI
+            const newToDo = document.createElement('li');
+            if (toDoInput.value === '') {
+                    alert("You must write something!");
+                }
+            else {
+                // newToDo.innerText = "hey";
+                newToDo.innerText = toDoInput.value;
+                newToDo.classList.add('todo-item');
+                toDoDiv.appendChild(newToDo);
 
+                // Adding to local storage;
+                savelocal(toDoInput.value);
 
-}
+                // check btn;
+                const checked = document.createElement('button');
+                checked.innerHTML = '<i class="fas fa-check"></i>';
+                checked.classList.add('check-btn', `${savedTheme}-button`);
+                toDoDiv.appendChild(checked);
+                // delete btn;
+                const deleted = document.createElement('button');
+                deleted.innerHTML = '<i class="fas fa-trash"></i>';
+                deleted.classList.add('delete-btn', `${savedTheme}-button`);
+                toDoDiv.appendChild(deleted);
 
+                // Append to list;
+                toDoList.appendChild(toDoDiv);
 
-// Saving to local storage:
-function savelocal(todo){
-    //Check: if item/s are there;
-    let todos;
-    if(localStorage.getItem('todos') === null) {
-        todos = [];
-    }
-    else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
-
-    todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-
-
-function getTodos() {
-    //Check: if item/s are there;
-    let todos;
-    if(localStorage.getItem('todos') === null) {
-        todos = [];
-    }
-    else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
-
-    todos.forEach(function(todo) {
-        // toDo DIV;
-        const toDoDiv = document.createElement("div");
-        toDoDiv.classList.add("todo", `${savedTheme}-todo`);
-
-        // Create LI
-        const newToDo = document.createElement('li');
-
-        newToDo.innerText = todo;
-        newToDo.classList.add('todo-item');
-        toDoDiv.appendChild(newToDo);
-
-        // check btn;
-        const checked = document.createElement('button');
-        checked.innerHTML = '<i class="fas fa-check"></i>';
-        checked.classList.add("check-btn", `${savedTheme}-button`);
-        toDoDiv.appendChild(checked);
-        // delete btn;
-        const deleted = document.createElement('button');
-        deleted.innerHTML = '<i class="fas fa-trash"></i>';
-        deleted.classList.add("delete-btn", `${savedTheme}-button`);
-        toDoDiv.appendChild(deleted);
-
-        // Append to list;
-        toDoList.appendChild(toDoDiv);
-    });
-}
-
-
-function removeLocalTodos(todo){
-    //Check: if item/s are there;
-    let todos;
-    if(localStorage.getItem('todos') === null) {
-        todos = [];
-    }
-    else {
-        todos = JSON.parse(localStorage.getItem('todos'));
-    }
-
-    const todoIndex =  todos.indexOf(todo.children[0].innerText);
-    // console.log(todoIndex);
-    todos.splice(todoIndex, 1);
-    // console.log(todos);
-    localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-// Change theme function:
-function changeTheme(color) {
-    localStorage.setItem('savedTheme', color);
-    savedTheme = localStorage.getItem('savedTheme');
-
-    document.body.className = color;
-    // Change blinking cursor for darker theme:
-    color === 'darker' ?
-        document.getElementById('title').classList.add('darker-title')
-        : document.getElementById('title').classList.remove('darker-title');
-
-    document.querySelector('input').className = `${color}-input`;
-    // Change todo color without changing their status (completed or not):
-    document.querySelectorAll('.todo').forEach(todo => {
-        Array.from(todo.classList).some(item => item === 'completed') ?
-            todo.className = `todo ${color}-todo completed`
-            : todo.className = `todo ${color}-todo`;
-    });
-    // Change buttons color according to their type (todo, check or delete):
-    document.querySelectorAll('button').forEach(button => {
-        Array.from(button.classList).some(item => {
-            if (item === 'check-btn') {
-              button.className = `check-btn ${color}-button`;
-            } else if (item === 'delete-btn') {
-                button.className = `delete-btn ${color}-button`;
-            } else if (item === 'todo-btn') {
-                button.className = `todo-btn ${color}-button`;
+                // CLearing the input;
+                toDoInput.value = '';
             }
-        });
-    });
-}
 
-var dt = new Date();
-document.getElementById("datetime").innerHTML = dt.toLocaleString();
+        }
+
+
+        function deletecheck(event){
+
+            // console.log(event.target);
+            const item = event.target;
+
+            // delete
+            if(item.classList[0] === 'delete-btn')
+            {
+                // item.parentElement.remove();
+                // animation
+                item.parentElement.classList.add("fall");
+
+                //removing local todos;
+                removeLocalTodos(item.parentElement);
+
+                item.parentElement.addEventListener('transitionend', function(){
+                    item.parentElement.remove();
+                })
+            }
+
+            // check
+            if(item.classList[0] === 'check-btn')
+            {
+                item.parentElement.classList.toggle("completed");
+            }
+
+
+        }
+
+
+        // Saving to local storage:
+        function savelocal(todo){
+            //Check: if item/s are there;
+            let todos;
+            if(localStorage.getItem('todos') === null) {
+                todos = [];
+            }
+            else {
+                todos = JSON.parse(localStorage.getItem('todos'));
+            }
+
+            todos.push(todo);
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+
+
+        function getTodos() {
+            //Check: if item/s are there;
+            let todos;
+            if(localStorage.getItem('todos') === null) {
+                todos = [];
+            }
+            else {
+                todos = JSON.parse(localStorage.getItem('todos'));
+            }
+
+            todos.forEach(function(todo) {
+                // toDo DIV;
+                const toDoDiv = document.createElement("div");
+                toDoDiv.classList.add("todo", `${savedTheme}-todo`);
+
+                // Create LI
+                const newToDo = document.createElement('li');
+
+                newToDo.innerText = todo;
+                newToDo.classList.add('todo-item');
+                toDoDiv.appendChild(newToDo);
+
+                // check btn;
+                const checked = document.createElement('button');
+                checked.innerHTML = '<i class="fas fa-check"></i>';
+                checked.classList.add("check-btn", `${savedTheme}-button`);
+                toDoDiv.appendChild(checked);
+                // delete btn;
+                const deleted = document.createElement('button');
+                deleted.innerHTML = '<i class="fas fa-trash"></i>';
+                deleted.classList.add("delete-btn", `${savedTheme}-button`);
+                toDoDiv.appendChild(deleted);
+
+                // Append to list;
+                toDoList.appendChild(toDoDiv);
+            });
+        }
+
+
+        function removeLocalTodos(todo){
+            //Check: if item/s are there;
+            let todos;
+            if(localStorage.getItem('todos') === null) {
+                todos = [];
+            }
+            else {
+                todos = JSON.parse(localStorage.getItem('todos'));
+            }
+
+            const todoIndex =  todos.indexOf(todo.children[0].innerText);
+            // console.log(todoIndex);
+            todos.splice(todoIndex, 1);
+            // console.log(todos);
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+
+        // Change theme function:
+        function changeTheme(color) {
+            localStorage.setItem('savedTheme', color);
+            savedTheme = localStorage.getItem('savedTheme');
+
+            document.body.className = color;
+            // Change blinking cursor for darker theme:
+            color === 'darker' ?
+                document.getElementById('title').classList.add('darker-title')
+                : document.getElementById('title').classList.remove('darker-title');
+
+            document.querySelector('input').className = `${color}-input`;
+            // Change todo color without changing their status (completed or not):
+            document.querySelectorAll('.todo').forEach(todo => {
+                Array.from(todo.classList).some(item => item === 'completed') ?
+                    todo.className = `todo ${color}-todo completed`
+                    : todo.className = `todo ${color}-todo`;
+            });
+            // Change buttons color according to their type (todo, check or delete):
+            document.querySelectorAll('button').forEach(button => {
+                Array.from(button.classList).some(item => {
+                    if (item === 'check-btn') {
+                    button.className = `check-btn ${color}-button`;
+                    } else if (item === 'delete-btn') {
+                        button.className = `delete-btn ${color}-button`;
+                    } else if (item === 'todo-btn') {
+                        button.className = `todo-btn ${color}-button`;
+                    }
+                });
+            });
+        }
+
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
 
     </script>
     <style>
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Work Sans', sans-serif;
-    min-height: 100vh;
-    padding-top: 3%;
-}
+        body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Work Sans', sans-serif;
+            min-height: 100vh;
+            padding-top: 3%;
+        }
 
-.standard {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
-    color: #ffdfdb;
-    transition: 0.3s linear;
-    overflow: hidden;
-}
+        .standard {
+            background-image: linear-gradient(100deg, #575656, #062e3f);
+            color: #ffdfdb;
+            transition: 0.3s linear;
+            overflow: hidden;
+        }
 
-.light {
-    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-    color: #1a150e;
-    transition: 0.3s linear;
-}
+        .light {
+            background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+            color: #1a150e;
+            transition: 0.3s linear;
+        }
 
-.darker {
-    background-image: linear-gradient(100deg, #001214, #001f29);
-    color: white;
-    transition: 0.3s linear;
-}
+        .darker {
+            background-image: linear-gradient(100deg, #001214, #001f29);
+            color: white;
+            transition: 0.3s linear;
+        }
 
-#header, #form, #datetime {
-    margin: 0 1rem;
-    min-height: 10vh;
-    width: 100%;
-}
+        #header, #form, #datetime {
+            margin: 0 1rem;
+            min-height: 10vh;
+            width: 100%;
+        }
 
-#header {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 3rem;
-    min-height: 25vh;
-    width: 100%;
-}
+        #header {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            font-size: 3rem;
+            min-height: 25vh;
+            width: 100%;
+        }
 
-.flexrow-container {
-    align-items: center;
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-around;
-    margin-right: 3%;
-}
+        .flexrow-container {
+            align-items: center;
+            align-self: flex-end;
+            display: flex;
+            justify-content: space-around;
+            margin-right: 3%;
+        }
 
-.theme-selector {
-    border: 1px solid #d1dae3;
-    border-radius: 100%;
-    height: 35px;
-    margin: 0 8px;
-    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
-    width: 35px;
-}
+        .theme-selector {
+            border: 1px solid #d1dae3;
+            border-radius: 100%;
+            height: 35px;
+            margin: 0 8px;
+            transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+            width: 35px;
+        }
 
-.theme-selector:hover {
-    box-shadow: white 0 0 8px;
-    cursor: pointer;
-}
+        .theme-selector:hover {
+            box-shadow: white 0 0 8px;
+            cursor: pointer;
+        }
 
-.theme-selector:active {
-    transform: scale(0.95);
-}
+        .theme-selector:active {
+            transform: scale(0.95);
+        }
 
-.standard-theme {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
-}
+        .standard-theme {
+            background-image: linear-gradient(100deg, #575656, #062e3f);
+        }
 
-.light-theme {
-    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-}
+        .light-theme {
+            background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+        }
 
-.darker-theme {
-    background-image: linear-gradient(100deg, #001214, #001f29);
-}
+        .darker-theme {
+            background-image: linear-gradient(100deg, #001214, #001f29);
+        }
 
-#title {
-    border-right: solid 3px rgba(0, 0, 0, 0.75);
-    white-space: pre;
-    overflow: hidden;
-    letter-spacing: 0.20rem;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    max-width: 480px;
-  }
+        #title {
+            border-right: solid 3px rgba(0, 0, 0, 0.75);
+            white-space: pre;
+            overflow: hidden;
+            letter-spacing: 0.20rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            max-width: 480px;
+        }
 
-#title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
-        animated-cursor 750ms steps(11,end) infinite;
-  }
+        #title {
+            animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
+                animated-cursor 750ms steps(11,end) infinite;
+        }
 
-#title.darker-title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
-}
-
-
-  @keyframes animated-text{
-    from{width: 0%;}
-    to{width: 480px;}
-  }
-
-  @keyframes animated-cursor{
-    from{border-right-color: rgba(0, 0, 0, 0.75);}
-    to{border-right-color: transparent;}
-  }
-
-  @keyframes darker-animated-cursor {
-    from{border-right-color: #01394c;}
-    to{border-right-color: transparent;}
-  }
-
-form {
-    display: flex;
-    font-size: 1.7rem;
-    justify-content: center;
-    margin: 15px 0;
-    padding: 0.8rem;
-    width: 100%;
-}
-
-form input {
-    padding: 10px;
-    font-size: 17px;
-    border: none;
-    outline: none;
-    border-top-left-radius: 17px;
-    border-bottom-left-radius: 17px;
-    max-width: 500px;
-    transition: background-color 200ms ease-in-out;
-    width: 100%;
-}
-
-form input.standard-input {
-    background-color: #181a1a;
-    color: rgb(247, 226, 223);
-}
+        #title.darker-title {
+            animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
+        }
 
 
-form input.light-input {
-    background-color: #AEB1B4;
-    color: #1a150e;
-}
+        @keyframes animated-text{
+            from{width: 0%;}
+            to{width: 480px;}
+        }
 
-form input.light-input::placeholder {
-    color: #1a150e;
-    opacity: 0.7;
-}
+        @keyframes animated-cursor{
+            from{border-right-color: rgba(0, 0, 0, 0.75);}
+            to{border-right-color: transparent;}
+        }
 
-form input.darker-input {
-    background-color: #01394c;
-    color: white;
-}
+        @keyframes darker-animated-cursor {
+            from{border-right-color: #01394c;}
+            to{border-right-color: transparent;}
+        }
 
-form input.darker-input::placeholder {
-    color: white;
-    opacity: 0.7;
-}
+        form {
+            display: flex;
+            font-size: 1.7rem;
+            justify-content: center;
+            margin: 15px 0;
+            padding: 0.8rem;
+            width: 100%;
+        }
 
-form input:hover {
-    cursor: text;
-}
+        form input {
+            padding: 10px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            border-top-left-radius: 17px;
+            border-bottom-left-radius: 17px;
+            max-width: 500px;
+            transition: background-color 200ms ease-in-out;
+            width: 100%;
+        }
 
-form input.standard-input:hover {
-    background-color: rgb(0, 0, 0);
-}
-
-form input.light-input:hover {
-    background-color: #919699;
-}
-
-form input.darker-input:hover {
-    background-color: #013141;
-}
-
-button {
-    border: none;
-    outline: none;
-    transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
-}
-
-button:hover {
-    cursor: pointer;
-}
-
-button.standard-button {
-    background-color: rgb(247, 226, 223);
-    color: rgb(0, 0, 0);
-}
-
-button.standard-button:hover {
-    background-color: white;
-    box-shadow: #fff8 0 0 10px;
-}
-
-button.light-button {
-    background-color: white;
-    color: #1a150e;
-}
-
-button.light-button:hover {
-    background-color: #f0f0f0;
-}
-
-button.darker-button {
-    background-color: #002837;
-    color: white;
-}
-
-button.darker-button:hover {
-    background-color: #001f29;
-}
-
-form button {
-    padding: 10px;
-    font-size: 17px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    min-width: 100px;
-}
-
-#myUnOrdList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-}
-
-.todo-list {
-    min-width: 25%;
-    list-style: none;
-}
-
-.todo {
-    margin: 1rem;
-    font-size: 19px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25em 0.5em;
-    border-radius: 30px;
-    transition: background-color 200ms ease-in-out;
-}
-
-.standard-todo {
-    background-color: rgb(26, 27, 27);
-}
-
-.light-todo {
-    background-color:#AEB1B4;
-}
-
-.darker-todo {
-    background-color: #01394c;
-}
-
-.todo li{
-    padding: 7px;
-    font-size: 20px;
-    flex: 1;
-    border-radius: 30px;
-    overflow-wrap: anywhere;
-}
-
-.check-btn, .delete-btn {
-    font-size: 19px;
-    cursor: pointer;
-    width: 2em;
-    height: 2em;
-    border-radius: 80%;
-    margin: 0 5px;
-}
-
-.todo-item {
-    padding: 0rem 0.5rem;
-}
-
-.fa-trash, .fa-check {
-    pointer-events: none;
-}
+        form input.standard-input {
+            background-color: #181a1a;
+            color: rgb(247, 226, 223);
+        }
 
 
-.completed {
-    transition: 0.2s;
-    text-decoration: line-through;
-    opacity: 0.5;
-}
+        form input.light-input {
+            background-color: #AEB1B4;
+            color: #1a150e;
+        }
 
-.fall {
-    transition: 0.5s;
-    transform: translateY(45rem) rotateZ(45deg);
-    opacity: 0;
-}
+        form input.light-input::placeholder {
+            color: #1a150e;
+            opacity: 0.7;
+        }
 
-@media only screen and (max-width: 1000px) {
-    .flexrow-container {
-        align-self: unset;
-        margin-right: 0;
-    }
-}
+        form input.darker-input {
+            background-color: #01394c;
+            color: white;
+        }
 
-@media only screen and (max-width: 800px) {
-    #header {
-        font-size: 2rem;
-    }
+        form input.darker-input::placeholder {
+            color: white;
+            opacity: 0.7;
+        }
 
-    #title {
-        animation:
-            animated-text 3s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
-        margin-bottom: 10px;
-        margin-top: 30px;
-        max-width: 330px;
-    }
-}
+        form input:hover {
+            cursor: text;
+        }
 
-@media only screen and (max-width: 400px) {
-    #header {
-        font-size: 1.5rem;
-    }
+        form input.standard-input:hover {
+            background-color: rgb(0, 0, 0);
+        }
 
-    #title {
-        animation:
-            animated-text 3.5s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
-        max-width: 255px;
-    }
-}
+        form input.light-input:hover {
+            background-color: #919699;
+        }
 
-@media only screen and (max-width: 400px) {
-    form {
-        align-items: center;
-        flex-direction: column;
-    }
+        form input.darker-input:hover {
+            background-color: #013141;
+        }
 
-    form input {
-        border-radius: 17px;
-    }
+        button {
+            border: none;
+            outline: none;
+            transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+        }
 
-    form button {
-        border-radius: 15px;
-        margin-top: 15px;
-        width: 50%;
-    }
-    form > button.light-button {
-        box-shadow: 0 0 5px lightgray;
-    }
-}
+        button:hover {
+            cursor: pointer;
+        }
+
+        button.standard-button {
+            background-color: rgb(247, 226, 223);
+            color: rgb(0, 0, 0);
+        }
+
+        button.standard-button:hover {
+            background-color: white;
+            box-shadow: #fff8 0 0 10px;
+        }
+
+        button.light-button {
+            background-color: white;
+            color: #1a150e;
+        }
+
+        button.light-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        button.darker-button {
+            background-color: #002837;
+            color: white;
+        }
+
+        button.darker-button:hover {
+            background-color: #001f29;
+        }
+
+        form button {
+            padding: 10px;
+            font-size: 17px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            min-width: 100px;
+        }
+
+        #myUnOrdList {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+        }
+
+        .todo-list {
+            min-width: 25%;
+            list-style: none;
+        }
+
+        .todo {
+            margin: 1rem;
+            font-size: 19px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.25em 0.5em;
+            border-radius: 30px;
+            transition: background-color 200ms ease-in-out;
+        }
+
+        .standard-todo {
+            background-color: rgb(26, 27, 27);
+        }
+
+        .light-todo {
+            background-color:#AEB1B4;
+        }
+
+        .darker-todo {
+            background-color: #01394c;
+        }
+
+        .todo li{
+            padding: 7px;
+            font-size: 20px;
+            flex: 1;
+            border-radius: 30px;
+            overflow-wrap: anywhere;
+        }
+
+        .check-btn, .delete-btn {
+            font-size: 19px;
+            cursor: pointer;
+            width: 2em;
+            height: 2em;
+            border-radius: 80%;
+            margin: 0 5px;
+        }
+
+        .todo-item {
+            padding: 0rem 0.5rem;
+        }
+
+        .fa-trash, .fa-check {
+            pointer-events: none;
+        }
+
+
+        .completed {
+            transition: 0.2s;
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        .fall {
+            transition: 0.5s;
+            transform: translateY(45rem) rotateZ(45deg);
+            opacity: 0;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .flexrow-container {
+                align-self: unset;
+                margin-right: 0;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+            #header {
+                font-size: 2rem;
+            }
+
+            #title {
+                animation:
+                    animated-text 3s steps(16,end) 0.5s 1 normal both,
+                    animated-cursor 750ms steps(16,end) infinite;
+                margin-bottom: 10px;
+                margin-top: 30px;
+                max-width: 330px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            #header {
+                font-size: 1.5rem;
+            }
+
+            #title {
+                animation:
+                    animated-text 3.5s steps(16,end) 0.5s 1 normal both,
+                    animated-cursor 750ms steps(16,end) infinite;
+                max-width: 255px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            form {
+                align-items: center;
+                flex-direction: column;
+            }
+
+            form input {
+                border-radius: 17px;
+            }
+
+            form button {
+                border-radius: 15px;
+                margin-top: 15px;
+                width: 50%;
+            }
+            form > button.light-button {
+                box-shadow: 0 0 5px lightgray;
+            }
+        }
 
     </style>
 </body>
