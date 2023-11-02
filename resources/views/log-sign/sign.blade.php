@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&family=Playpen+Sans:wght@500&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Sign up</title>
 </head>
@@ -25,13 +26,20 @@
                     <div class="card-body p-md-5">
                       <h2 class="ezy__signup12-heading text-center">Sign Up</h2>
 
-                      <div class="position-relative ezy__signup12-or-separator">
-                        <hr class="my-4 mt-md-5" />
-                        <span class="px-2"></span>
-                      </div>
-
                       <form method="POST" action="{{ route('submit') }}">
                         @csrf
+                        <div class="icons">
+                            <a href="{{ url('login/github') }}">
+                                <i class="fa fa-github" style="font-size:50px;color:rgb(31, 31, 31)"></i>
+                            </a>
+                            <a href="{{ url('login/google') }}">
+                                <i class="fa fa-google" style="font-size:50px;color:rgb(31, 31, 31)"></i>
+                            </a>
+                        </div>
+                        <div class="position-relative ezy__signup12-or-separator">
+                            <hr class="my-4 mt-md-5" />
+                            <span class="px-2"></span>
+                          </div>
                         <div class="form-group mb-4">
                             <label for="username" class="mb-2">Full Name</label>
                             <input name="username" type="text" class="form-control" id="username" required/>
@@ -81,6 +89,14 @@
     background-image: linear-gradient(100deg, #575656, #062e3f);
     overflow: hidden;
 }
+
+.icons{
+            margin: 35px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
 .center
 {
   display: flex;
