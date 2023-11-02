@@ -14,7 +14,8 @@ class Accounts extends Model
     protected $table = 'table_acconts';
     protected $primaryKey = 'id';
     public $increnenting = false;
-    protected $fillable = ['username', 'email', 'password'];
+    protected $fillable = ['username', 'email', 'role_id', 'password', 'email_verified_at', 'created_at'];
     protected $keyType = 'string';
     protected $hidden = ['password'];
+
 }

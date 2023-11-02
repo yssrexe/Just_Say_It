@@ -28,9 +28,7 @@ class GithubController extends Controller
             $generated_password = rand(100000, 999990);
             $insert = User::insert([
                 "name"=>$user->getNickname(),
-              # "name"=>$user->getName(),    //may for Google
                 "email"=>$user->getEmail(),
-                "role_id"=>5,
                 "password"=>Hash::make($generated_password),
                 "email_verified_at"=>Carbon::now(),
                 "created_at"=>Carbon::now(),

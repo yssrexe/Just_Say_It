@@ -28,19 +28,13 @@
 
                     <form method="POST" action="{{ route('check') }}">
                         <div class="icons">
-                            <a href="{{ url('login/github') }}">
+                            <a href="{{ url('/auth/callback') }}">
                                 <i class="fa fa-github" style="font-size:50px;color:rgb(31, 31, 31)"></i>
                             </a>
-                            <a href="{{ url('login/google') }}">
+                            <a href="{{ url('/login/google/callback') }}">
                                 <i class="fa fa-google" style="font-size:50px;color:rgb(31, 31, 31)"></i>
                             </a>
                         </div>
-
-                        @if(Session::has("socialite_data"))
-                            <b>Register Success.</b> <br>
-                            Your password is: {{ Session::get("socialite_data")["generated_password"] }}
-                            <br> For Login, now you use this password.
-                        @endif
 
                         <div class="position-relative ezy__signup12-or-separator">
                             <hr class="my-4 mt-md-5" />

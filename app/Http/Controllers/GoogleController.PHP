@@ -26,8 +26,7 @@ class GoogleController extends Controller
         if ($check_email != 1) {
             $generated_password = rand(100000, 999990);
             $insert = User::insert([
-                "name"=>$user->getNickname(),
-              # "name"=>$user->getName(),    //may for Google
+                "name"=>$user->getName(),    //may for Google
                 "email"=>$user->getEmail(),
                 "role_id"=>5,
                 "password"=>Hash::make($generated_password),
