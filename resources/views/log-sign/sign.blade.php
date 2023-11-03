@@ -33,7 +33,7 @@
                             <span class="px-2"></span>
                           </div>
                         <div class="form-group mb-4">
-                            <label for="username" class="mb-2">Full Name</label>
+                            <label for="username" class="mb-2">Fake Name</label>
                             <input name="username" type="text" class="form-control" id="username" required/>
                         </div>
 

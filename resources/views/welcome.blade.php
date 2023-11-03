@@ -22,9 +22,9 @@
         </div>
         <div class="video-mt">
             <div class="titles">
-                <p class="title">Organize your work <br> and life, finally.</p>
-                <p class="mini-title">Become focused, organized, and calm with Todoist. The world’s #1 <br> task manager and to-do list app.</p>
-                <a id="bott" class="btn btn-danger" href="/login">Start for free</a>
+                <p class="title">No need to keep it inside, <br> just express it</p>
+                <p class="mini-title">Speak your mind freely, don't withhold your thoughts or feelings; express yourself openly and honestly, and let your words flow.</p>
+                <a id="bott" class="btn btn-danger" href="/login">Let's Go</a>
             </div>
         </div>
     </div>

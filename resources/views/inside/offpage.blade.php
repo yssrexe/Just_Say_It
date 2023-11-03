@@ -27,9 +27,9 @@
         <h1 id="title">Just say it.<div id="border"></div></h1>
     </div>
 
-  <div id="form">
+    <div id="form">
         <form>
-            <input class="todo-input" type="text" placeholder="Add a task.">
+            <input class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
             <button class="todo-btn" type="submit">I Got This!</button>
         </form>
     </div>
