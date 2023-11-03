@@ -27,15 +27,6 @@
                       <h1 class="ezy__signup12-heading text-center">Log In</h1>
 
                     <form method="POST" action="{{ route('check') }}">
-                        <div class="icons">
-                            <a href="{{ url('/auth/callback') }}">
-                                <i class="fa fa-github" style="font-size:50px;color:rgb(31, 31, 31)"></i>
-                            </a>
-                            <a href="{{ url('/login/google/callback') }}">
-                                <i class="fa fa-google" style="font-size:50px;color:rgb(31, 31, 31)"></i>
-                            </a>
-                        </div>
-
                         <div class="position-relative ezy__signup12-or-separator">
                             <hr class="my-4 mt-md-5" />
                             <span class="px-2"></span>

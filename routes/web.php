@@ -26,11 +26,3 @@ Route::post('/submit', [FormController::class,'signin'])->name('submit');
 
 Route::get('/check', [FormController::class, 'check'])->name('check');
 Route::post('/check', [FormController::class, 'check']);
-
-# for Github
-Route::get('login/github', [GithubController::class, "redirectToProvider"]);
-Route::get('/auth/callback', [GithubController::class, "handleProviderCallback"]);
-
-# for Google
-Route::get('login/google', [GoogleController::class, "redirectToProvider"]);
-Route::get('/login/google/callback', [GoogleController::class, "handleProviderCallback"]);

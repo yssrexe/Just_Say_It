@@ -13,7 +13,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/corner.css">
-    <title>JUST DO IT</title>
+    <title>JUST SAY IT</title>
 
 </head>
 
@@ -24,7 +24,7 @@
             <div class="light-theme theme-selector"></div>
             <div class="darker-theme theme-selector"></div>
         </div>
-        <h1 id="title">Just do it.<div id="border"></div></h1>
+        <h1 id="title">Just say it.<div id="border"></div></h1>
     </div>
 
   <div id="form">
@@ -108,7 +108,6 @@
                 // CLearing the input;
                 toDoInput.value = '';
             }
-
         }
 
 
@@ -344,7 +343,7 @@
             border-right: solid 3px rgba(0, 0, 0, 0.75);
             white-space: pre;
             overflow: hidden;
-            letter-spacing: 0.20rem;
+            letter-spacing: 0.14rem;
             margin-top: 50px;
             margin-bottom: 20px;
             max-width: 480px;
@@ -588,7 +587,7 @@
                 animation:
                     animated-text 3.5s steps(16,end) 0.5s 1 normal both,
                     animated-cursor 750ms steps(16,end) infinite;
-                max-width: 255px;
+                max-width: 283px;
             }
         }
 
