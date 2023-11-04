@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <title>JUST DO IT</title>
+    <title>JUST SAY IT</title>
 
 </head>
 

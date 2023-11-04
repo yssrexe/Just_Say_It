@@ -29,7 +29,7 @@
 
     <div id="form">
         <form>
-            <input class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
+            <input name="comment" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
             <button class="todo-btn" type="submit">I Got This!</button>
         </form>
     </div>
