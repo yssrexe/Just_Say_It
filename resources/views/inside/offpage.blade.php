@@ -20,16 +20,12 @@
 <body>
 
     <div id = "header">
-        <div class="flexrow-container">
-            <div class="standard-theme theme-selector"></div>
-            <div class="light-theme theme-selector"></div>
-            <div class="darker-theme theme-selector"></div>
-        </div>
         <h1 id="title">Just say it.<div id="border"></div></h1>
     </div>
     <div id="form">
-        <form method="POST" action="">
-            <input name="comment" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
+        <form method="POST" action="{{ route('post') }}">
+            @csrf
+            <input name="comments" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
             <button class="todo-btn" type="submit">I Got This!</button>
         </form>
     </div>
@@ -64,191 +60,8 @@
     </div>
 
     <script>
-            // Selectors
-
-        const toDoInput = document.querySelector('.todo-input');
-        const toDoBtn = document.querySelector('.todo-btn');
-        const toDoList = document.querySelector('.todo-list');
-        const standardTheme = document.querySelector('.standard-theme');
-        const lightTheme = document.querySelector('.light-theme');
-        const darkerTheme = document.querySelector('.darker-theme');
-
-
-        // Event Listeners
-
-        toDoBtn.addEventListener('click', addToDo);
-        toDoList.addEventListener('click', deletecheck);
-        document.addEventListener("DOMContentLoaded", getTodos);
-        standardTheme.addEventListener('click', () => changeTheme('standard'));
-        lightTheme.addEventListener('click', () => changeTheme('light'));
-        darkerTheme.addEventListener('click', () => changeTheme('darker'));
-
-        // Check if one theme has been set previously and apply it (or std theme if not found):
-        let savedTheme = localStorage.getItem('savedTheme');
-        savedTheme === null ?
-            changeTheme('standard')
-            : changeTheme(localStorage.getItem('savedTheme'));
-
-        // Functions;
-        function addToDo(event) {
-            // Prevents form from submitting / Prevents form from relaoding;
-            event.preventDefault();
-
-            // toDo DIV;
-
-            // Create LI
-            const newToDo = document.createElement('li');
-            if (toDoInput.value === '') {
-                    alert("You must write something!");
-                }
-            else {
-                // newToDo.innerText = "hey";
-                newToDo.innerText = toDoInput.value;
-                newToDo.classList.add('todo-item');
-                toDoDiv.appendChild(newToDo);
-
-                // Adding to local storage;
-                savelocal(toDoInput.value);
-
-                // check btn;
-                const checked = document.createElement('button');
-                checked.classList.add('check-btn', `${savedTheme}-button`);
-                toDoDiv.appendChild(checked);
-                // delete btn;
-                const deleted = document.createElement('button');
-                deleted.classList.add('delete-btn', `${savedTheme}-button`);
-                toDoDiv.appendChild(deleted);
-
-                // Append to list;
-                toDoList.appendChild(toDoDiv);
-
-                // CLearing the input;
-                toDoInput.value = '';
-            }
-        }
-
-
-        function deletecheck(event){
-
-            // console.log(event.target);
-            const item = event.target;
-
-            // delete
-            if(item.classList[0] === '')
-            {
-                // item.parentElement.remove();
-                // animation
-                item.parentElement.classList.add("fall");
-
-                //removing local todos;
-                removeLocalTodos(item.parentElement);
-
-                item.parentElement.addEventListener('transitionend', function(){
-                    item.parentElement.remove();
-                })
-            }
-
-            // check
-            if(item.classList[0] === 'check-btn')
-            {
-                item.parentElement.classList.toggle("completed");
-            }
-
-
-        }
-
-
-        // Saving to local storage:
-        function savelocal(todo){
-            //Check: if item/s are there;
-            let todos;
-            if(localStorage.getItem('todos') === null) {
-                todos = [];
-            }
-            else {
-                todos = JSON.parse(localStorage.getItem('todos'));
-            }
-
-            todos.push(todo);
-            localStorage.setItem('todos', JSON.stringify(todos));
-        }
-
-
-
-        function getTodos() {
-            //Check: if item/s are there;
-            let todos;
-            if(localStorage.getItem('todos') === null) {
-                todos = [];
-            }
-            else {
-                todos = JSON.parse(localStorage.getItem('todos'));
-            }
-
-            todos.forEach(function(todo) {
-                // toDo DIV;
-                const toDoDiv = document.createElement("div");
-                toDoDiv.classList.add("todo", `${savedTheme}-todo`);
-
-                // Create LI
-                const newToDo = document.createElement('li');
-
-                newToDo.innerText = todo;
-                newToDo.classList.add('todo-item');
-                toDoDiv.appendChild(newToDo);
-
-                // check btn;
-                // delete btn;
-                const deleted = document.createElement('button');
-                deleted.classList.add("delete-btn", `${savedTheme}-button`);
-                toDoDiv.appendChild(deleted);
-
-                // Append to list;
-                toDoList.appendChild(toDoDiv);
-            });
-        }
-
-
-        function removeLocalTodos(todo){
-            //Check: if item/s are there;
-            let todos;
-            if(localStorage.getItem('todos') === null) {
-                todos = [];
-            }
-            else {
-                todos = JSON.parse(localStorage.getItem('todos'));
-            }
-
-            const todoIndex =  todos.indexOf(todo.children[0].innerText);
-            // console.log(todoIndex);
-            todos.splice(todoIndex, 1);
-            // console.log(todos);
-            localStorage.setItem('todos', JSON.stringify(todos));
-        }
-
-        // Change theme function:
-        function changeTheme(color) {
-            localStorage.setItem('savedTheme', color);
-            savedTheme = localStorage.getItem('savedTheme');
-
-            document.body.className = color;
-            // Change blinking cursor for darker theme:
-            color === 'darker' ?
-                document.getElementById('title').classList.add('darker-title')
-                : document.getElementById('title').classList.remove('darker-title');
-
-            document.querySelector('input').className = `${color}-input`;
-            // Change todo color without changing their status (completed or not):
-            document.querySelectorAll('.todo').forEach(todo => {
-                Array.from(todo.classList).some(item => item === 'completed') ?
-                    todo.className = `todo ${color}-todo completed`
-                    : todo.className = `todo ${color}-todo`;
-            });
-        }
-
         var dt = new Date();
         document.getElementById("datetime").innerHTML = dt.toLocaleString();
-
     </script>
     <style>
         .card {
@@ -301,26 +114,9 @@
             flex-direction: column;
             font-family: 'Work Sans', sans-serif;
             min-height: 100vh;
-            padding-top: 3%;
-        }
-
-        .standard {
             background-image: linear-gradient(100deg, #575656, #062e3f);
-            color: #ffdfdb;
-            transition: 0.3s linear;
-            overflow: hidden;
-        }
-
-        .light {
-            background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-            color: #1a150e;
-            transition: 0.3s linear;
-        }
-
-        .darker {
-            background-image: linear-gradient(100deg, #001214, #001f29);
-            color: white;
-            transition: 0.3s linear;
+            color: #ffffff;
+            padding-top: 3%;
         }
 
         #header, #form, #datetime {
@@ -362,18 +158,6 @@
 
         .theme-selector:active {
             transform: scale(0.95);
-        }
-
-        .standard-theme {
-            background-image: linear-gradient(100deg, #575656, #062e3f);
-        }
-
-        .light-theme {
-            background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-        }
-
-        .darker-theme {
-            background-image: linear-gradient(100deg, #001214, #001f29);
         }
 
         #title {
