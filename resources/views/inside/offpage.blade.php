@@ -52,7 +52,7 @@
                 </div>
                 <div class="user-info">
                     <span>anonyme</span>
-                    <p><span id="datetime"></span></p>
+                    <p><span id="datetime" class="datesize"></span></p>
                 </div>
                 </div>
                 <p class="comment-content">
@@ -327,7 +327,6 @@
         }
 
         #header, #form, #datetime {
-            margin: 0 1rem;
             min-height: 10vh;
             width: 100%;
         }
