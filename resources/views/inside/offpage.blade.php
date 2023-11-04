@@ -98,8 +98,6 @@
             event.preventDefault();
 
             // toDo DIV;
-            const toDoDiv = document.createElement("div");
-            toDoDiv.classList.add('todo', `${savedTheme}-todo`);
 
             // Create LI
             const newToDo = document.createElement('li');
@@ -117,12 +115,10 @@
 
                 // check btn;
                 const checked = document.createElement('button');
-                checked.innerHTML = '<i class="fas fa-check"></i>';
                 checked.classList.add('check-btn', `${savedTheme}-button`);
                 toDoDiv.appendChild(checked);
                 // delete btn;
                 const deleted = document.createElement('button');
-                deleted.innerHTML = '<i class="fas fa-trash"></i>';
                 deleted.classList.add('delete-btn', `${savedTheme}-button`);
                 toDoDiv.appendChild(deleted);
 
@@ -141,7 +137,7 @@
             const item = event.target;
 
             // delete
-            if(item.classList[0] === 'delete-btn')
+            if(item.classList[0] === '')
             {
                 // item.parentElement.remove();
                 // animation
@@ -205,13 +201,8 @@
                 toDoDiv.appendChild(newToDo);
 
                 // check btn;
-                const checked = document.createElement('button');
-                checked.innerHTML = '<i class="fas fa-check"></i>';
-                checked.classList.add("check-btn", `${savedTheme}-button`);
-                toDoDiv.appendChild(checked);
                 // delete btn;
                 const deleted = document.createElement('button');
-                deleted.innerHTML = '<i class="fas fa-trash"></i>';
                 deleted.classList.add("delete-btn", `${savedTheme}-button`);
                 toDoDiv.appendChild(deleted);
 
@@ -256,18 +247,6 @@
                     todo.className = `todo ${color}-todo completed`
                     : todo.className = `todo ${color}-todo`;
             });
-            // Change buttons color according to their type (todo, check or delete):
-            document.querySelectorAll('button').forEach(button => {
-                Array.from(button.classList).some(item => {
-                    if (item === 'check-btn') {
-                    button.className = `check-btn ${color}-button`;
-                    } else if (item === 'delete-btn') {
-                        button.className = `delete-btn ${color}-button`;
-                    } else if (item === 'todo-btn') {
-                        button.className = `todo-btn ${color}-button`;
-                    }
-                });
-            });
         }
 
         var dt = new Date();
@@ -276,41 +255,42 @@
     </script>
     <style>
         .card {
-  width: 450px;
-  height: fit-content;
-  background-color: white;
-  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 17px 17px 27px 27px;
-}
+          width: 450px;
+          height: fit-content;
+          margin-bottom: 50px;
+          background-color: rgba(red, green, blue, alpha);
+          box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+          border-radius: 17px 17px 27px 27px;
+        }
 
-.comments {
-  display: grid;
-  grid-template-columns: 35px 1fr;
-  gap: 20px;
-  padding: 20px;
-}
+        .comments {
+          display: grid;
+          grid-template-columns: 35px 1fr;
+          gap: 20px;
+          padding: 20px;
+        }
 
-.user-info span{
-    margin-top:10px;
-    font-size: 20px;
-}
+        .user-info span{
+            margin-top:10px;
+            font-size: 20px;
+        }
 
-.comment-container .user {
-  display: flex;
-  grid-template-columns: 40px 1fr;
-  gap: 10px;
-}
+        .comment-container .user {
+          display: flex;
+          grid-template-columns: 40px 1fr;
+          gap: 10px;
+        }
 
-.comment-container .user .user-pic {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f1f1f1;
-  border-radius: 50%;
-}
+        .comment-container .user .user-pic {
+          width: 40px;
+          height: 40px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f1f1f1;
+          border-radius: 50%;
+        }
 
         * {
             margin: 0;
@@ -544,13 +524,6 @@
             min-width: 100px;
         }
 
-        #myUnOrdList {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            max-width: 1200px;
-        }
-
         .todo-list {
             min-width: 25%;
             list-style: none;
@@ -567,55 +540,7 @@
             transition: background-color 200ms ease-in-out;
         }
 
-        .standard-todo {
-            background-color: rgb(26, 27, 27);
-        }
 
-        .light-todo {
-            background-color:#AEB1B4;
-        }
-
-        .darker-todo {
-            background-color: #01394c;
-        }
-
-        .todo li{
-            padding: 7px;
-            font-size: 20px;
-            flex: 1;
-            border-radius: 30px;
-            overflow-wrap: anywhere;
-        }
-
-        .check-btn, .delete-btn {
-            font-size: 19px;
-            cursor: pointer;
-            width: 2em;
-            height: 2em;
-            border-radius: 80%;
-            margin: 0 5px;
-        }
-
-        .todo-item {
-            padding: 0rem 0.5rem;
-        }
-
-        .fa-trash, .fa-check {
-            pointer-events: none;
-        }
-
-
-        .completed {
-            transition: 0.2s;
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-
-        .fall {
-            transition: 0.5s;
-            transform: translateY(45rem) rotateZ(45deg);
-            opacity: 0;
-        }
 
         @media only screen and (max-width: 1000px) {
             .flexrow-container {
