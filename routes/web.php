@@ -26,3 +26,6 @@ Route::post('/submit', [FormController::class,'signin'])->name('submit');
 
 Route::get('/check', [FormController::class, 'check'])->name('check');
 Route::post('/check', [FormController::class, 'check']);
+
+
+#for posting

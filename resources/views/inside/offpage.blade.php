@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <div id = "header">
         <div class="flexrow-container">
             <div class="standard-theme theme-selector"></div>
@@ -26,15 +27,11 @@
         </div>
         <h1 id="title">Just say it.<div id="border"></div></h1>
     </div>
-
     <div id="form">
-        <form>
+        <form method="POST" action="">
             <input name="comment" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
             <button class="todo-btn" type="submit">I Got This!</button>
         </form>
-    </div>
-    <div>
-
     </div>
 
   <div id="myUnOrdList">
