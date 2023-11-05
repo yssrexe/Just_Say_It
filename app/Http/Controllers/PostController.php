@@ -15,7 +15,6 @@ class PostController extends Controller
 
         Post::create($post);
 
-        return view('inside.offpage');
+        return redirect('posted');
     }
-
 }
