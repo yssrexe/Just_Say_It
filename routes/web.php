@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\MyController;
-use App\Http\Controllers\GithubController;
-use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +30,4 @@ Route::post('/check', [FormController::class, 'check']);
 #for posting
 
 Route::post('/post', [PostController::class,'post'])->name('post');
-Route::get('/posted', [MyController::class, 'postepage'])->name('posted');
+Route::get('/posted', [MyController::class, 'offpage'])->name('posted');

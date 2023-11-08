@@ -26,9 +26,4 @@ class MyController extends Controller
     {
         return view("inside.offpage");
     }
-
-    public function postepage()
-    {
-        return view("inside.offpage");
-    }
 }

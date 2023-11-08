@@ -12,5 +12,5 @@ class Post extends Model
     protected $table = 'postes';
     protected $primaryKey = 'id';
     public $incrementing = false;
-    protected $fillable = ['id' ,'comments' ,'created_at' ,'updated_at' ];
+    protected $fillable = ['id', 'comments', 'created_at', 'updated_at'];
 }
