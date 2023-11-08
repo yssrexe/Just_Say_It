@@ -9,9 +9,7 @@ class PostController extends Controller
 {
     public function post(Request $request)
     {
-        $post = $request->validate([
-            'comments' => 'required|string',
-        ]);
+        $post = $request->validate(['comments' => 'required|string']);
 
         Post::create($post);
 
