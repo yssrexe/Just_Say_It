@@ -13,6 +13,11 @@ class PostController extends Controller
 
         Post::create($post);
 
-        return redirect('posted');
+        if (!$post) {
+            return view('inside.offpage');
+        } else {
+            $postes = Post::all();
+            return view('inside.offpage', ['postes' => $postes]);
+        }
     }
 }
