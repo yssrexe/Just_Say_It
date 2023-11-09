@@ -16,7 +16,7 @@ class PostController extends Controller
         if (!$post) {
             return view('inside.offpage');
         } else {
-            $postes = Post::all();
+            $postes = Post::orderBy('created_at', 'desc')->get();
             return view('inside.offpage', ['postes' => $postes]);
         }
     }
