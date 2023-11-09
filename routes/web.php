@@ -30,4 +30,3 @@ Route::post('/check', [FormController::class, 'check']);
 #for posting
 
 Route::post('/post', [PostController::class,'post'])->name('post');
-Route::get('/posted', [MyController::class, 'offpage'])->name('posted');

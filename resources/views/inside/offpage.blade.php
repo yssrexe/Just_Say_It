@@ -23,10 +23,10 @@
         <h1 id="title">Just say it.<div id="border"></div></h1>
     </div>
     <div id="form">
-        <form method="POST" action="{{ route('post') }}">
+        <form id="postForm" method="POST" action="{{ route('post') }}">
             @csrf
-            <input name="comments" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
-            <button class="todo-btn" type="submit">I Got This!</button>
+            <input id="commentsInput" name="comments" class="todo-input" type="text" placeholder="Share your feelings without hesitation.">
+            <button id="submitButton" class="todo-btn" type="submit">I Got This!</button>
         </form>
     </div>
 
@@ -64,8 +64,7 @@
     </div>
 
     <script>
-        var dt = new Date();
-        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
     </script>
     <style>
         .card {

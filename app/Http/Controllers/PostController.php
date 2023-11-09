@@ -9,15 +9,18 @@ class PostController extends Controller
 {
     public function post(Request $request)
     {
-        $post = $request->validate(['comments' => 'required|string']);
+        $validatedData = $request->validate(['comments' => 'required|string']);
 
-        Post::create($post);
+        $post = Post::create($validatedData);
 
         if (!$post) {
-            return view('inside.offpage');
+            return view('inside.offpage', ['error' => 'Failed to create the post.']);
         } else {
             $postes = Post::orderBy('created_at', 'desc')->get();
             return view('inside.offpage', ['postes' => $postes]);
         }
+
+
+
     }
 }
