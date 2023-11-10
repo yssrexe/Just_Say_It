@@ -79,6 +79,7 @@
         .comments {
           display: grid;
           grid-template-columns: 35px 1fr;
+          overflow: auto;
           gap: 20px;
           padding: 20px;
         }
@@ -308,6 +309,7 @@
         }
 
         .todo-list {
+            margin-top: 20px;
             min-width: 25%;
             list-style: none;
         }
